@@ -50,7 +50,7 @@ Fetches all notes.
 ]
 ```
 
-### `GET /notes/id`
+### `GET /notes/<int:note_id>`
 
 Fetches note using id.
 
@@ -73,14 +73,12 @@ Fetches note using id.
 
 Fetches note using id.
 
-**Request:**
-
-- Content-Type: `application/json`
+**Request Body:**
 
 ```json
 [
   {
-    "content": "This is a new note."
+    "content": "This is another note."
   }
 ]
 ```
@@ -104,13 +102,11 @@ Fetches note using id.
 ]
 ```
 
-### `PUT /notes/id`
+### `PUT /notes/<int:note_id>`
 
 Update a note using id.
 
-**Request:**
-
-- Content-Type: `application/json`
+**Request Body:**
 
 ```json
 [
@@ -135,7 +131,7 @@ Update a note using id.
 ]
 ```
 
-### `DELETE /notes/id`
+### `DELETE /notes/<int:note_id>`
 
 DELETE a note using id.
 
