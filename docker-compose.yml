@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  api:
+    build: .
+    image: flask-notes-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=sqlite:////data/notes.db
+
+  db:
+    image: "postgres:13-alpine"
+    environment:
+      - POSTGRES_USER=notesuser
+      - POSTGRES_PASSWORD=notespassword
+      - POSTGRES_DB=notesdb
+    volumes:
+      - notes-db-data:/var/lib/postgresql/data
+
+volumes:
+  notes-db-data:
+
